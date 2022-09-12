@@ -1,0 +1,9 @@
+<div class="m-5">
+  <mat-icon (click)="showTableView()" aria-hidden="false" aria-label="Example home icon" fontIcon="home">table_rows
+  </mat-icon>
+  <mat-icon (click)="showGridView()" aria-hidden="false" aria-label="Example home icon" fontIcon="home">content_copy
+  </mat-icon>
+  <app-grid-view *ngIf="gridView == true" [paises]="paises"></app-grid-view>
+  <app-table-view *ngIf="tableView == true" [tableData]="paises" (sort)="sortData($event)"
+    [tableColumns]="paisesTableColumns" [isPageable]="true" [paginationSizes]="[2,4,6]"></app-table-view>
+</div>
