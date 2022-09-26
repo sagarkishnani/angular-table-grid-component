@@ -1,0 +1,4 @@
+.view-selector {
+  display: flex;
+  flex-direction: row;
+}

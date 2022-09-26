@@ -1,0 +1,44 @@
+:root {
+  --mainColor: #007788;
+  --secondColor: #be7226;
+  --hoverColor: #f0f0f0;
+  --selectedColor: #e8f0fe;
+}
+
+section {
+  display: table;
+}
+
+.file-icon-card {
+  text-align: center;
+}
+
+.file-icon {
+  width: 6rem;
+  height: 6rem;
+  font-size: 6rem;
+}
+
+.file-item {
+  width: 6rem;
+  margin: 0.5rem;
+}
+
+.file-item:hover {
+  background-color: lightgray;
+  border: 2px lightgray;
+  border-radius: 12px;
+}
+
+.file-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 300px;
+}

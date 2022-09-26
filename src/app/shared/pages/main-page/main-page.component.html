@@ -1,0 +1,14 @@
+<app-folder-view *ngIf="hasFile === 'false'" [files]="archivos" [level]="level"></app-folder-view>
+<div class="view-selector" *ngIf="hasFile === 'true'">
+  <div class="icon-container" [ngClass]="tableView == true ? 'icon-active': ''">
+    <mat-icon (click)="showTableView()" aria-hidden="false" aria-label="table-icon" fontIcon="home">table_chart
+    </mat-icon>
+  </div>
+  <div class="icon-container" [ngClass]="gridView == true ? 'icon-active': ''">
+    <mat-icon (click)="showGridView()" aria-hidden="false" aria-label="content-icon" fontIcon="home">content_copy
+    </mat-icon>
+  </div>
+</div>
+<app-grid-view *ngIf="hasFile === 'true' && gridView" [files]="archivos"></app-grid-view>
+<app-table-view *ngIf="hasFile === 'true' && tableView" [tableData]="archivos" (sort)="sortData($event)"
+  [tableColumns]="filesTableColumns" [isPageable]="true" [paginationSizes]="[5,10,20]"></app-table-view>

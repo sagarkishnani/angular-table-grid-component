@@ -1,38 +1,84 @@
+:root {
+  --mainColor: #007788;
+  --secondColor: #be7226;
+  --hoverColor: #f0f0f0;
+  --selectedColor: #e8f0fe;
+}
+
 section {
   display: table;
 }
 
-.example-label {
-  display: table-cell;
-  font-size: 14px;
-  margin-left: 8px;
-  min-width: 120px;
+.file-icon-card {
+  text-align: center;
 }
 
-.example-button-row {
-  display: table-cell;
-  width: 490px;
+.file-icon {
+  width: 4rem;
+  height: 4rem;
+  font-size: 4rem;
 }
 
-.example-button-row .mat-button-base {
-  margin: 8px 8px 8px 0;
+.more-icon {
+  float: right;
 }
 
-.example-flex-container {
+mat-card {
+  padding: 0.7rem;
+  z-index: 1 !important;
+  position: relative !important;
+}
+
+mat-card:hover {
+  background-color: #f0f0f0 !important;
+}
+
+.file-item {
+  width: 6rem;
+  margin: 0.5rem;
+}
+
+.file-container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   flex-wrap: wrap;
-}
-
-.example-button-container {
-  display: flex;
-  justify-content: center;
-  width: 120px;
 }
 
 p {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 200px;
+  max-width: 300px;
+}
+
+.item-hover-container {
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  background-color: white;
+  font-size: 10px;
+  border-radius: 8px;
+  padding: 0.5rem;
+  width: 8rem;
+  color: gray;
+}
+
+.item-hover {
+  position: absolute;
+  width: 8rem;
+  z-index: 99;
+}
+
+.file-item .item-hover {
+  visibility: hidden;
+  transition: 0.1s;
+}
+
+.item-hover-container {
+  transform: translate(60px, -40px);
+}
+
+.file-item:hover .item-hover {
+  visibility: visible;
+  transition: all 0.2s ease-in 1s;
+  pointer-events: none;
 }

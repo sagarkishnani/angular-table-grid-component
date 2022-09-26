@@ -1,0 +1,74 @@
+:root {
+  --mainColor: #007788;
+  --secondColor: #be7226;
+  --hoverColor: #f0f0f0;
+}
+
+.view-selector {
+  display: flex;
+  flex-direction: row;
+}
+
+.icon-container {
+  margin-right: 0.5rem;
+  padding: 0.2rem;
+}
+
+.icon-active {
+  border-radius: 8px;
+  background-color: #f0f0f0;
+}
+
+mat-icon {
+  width: 22px;
+  height: 22px;
+  font-size: 22px;
+}
+
+/* Sidebar */
+
+.menu-btn-container {
+  padding-right: 0.2rem;
+  padding-left: 0.2rem;
+  padding-top: 0.1rem;
+  border-radius: 100%;
+  background-color: #5ea8b3;
+  border: none;
+  cursor: pointer;
+}
+
+.main-container {
+  height: 100%;
+  margin: 1rem;
+  padding: 0.2rem;
+  border-radius: 8px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.sidenav {
+  background-color: #fafafa !important;
+  width: 25vw;
+}
+
+.side-nav-button {
+  border-right: 2px solid #c1c1c1;
+  padding-right: 0.5rem;
+  height: 100vh;
+  margin-right: 1rem;
+  margin-left: 0.2rem;
+}
+
+.side-nav-content {
+  display: flex;
+}
+
+.mat-drawer-side {
+  border-right: 0px !important;
+}
+
+@media screen and (max-width: 600px) {
+  .sidenav {
+    width: 90vw;
+  }
+}

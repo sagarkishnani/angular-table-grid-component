@@ -1,0 +1,35 @@
+{
+  "info": {
+    "level": "0"
+  },
+  "data": [
+    {
+      "id": "632b407fa1610e638633525a",
+      "name": "Current Site"
+    },
+    {
+      "id": "2",
+      "name": "Site 26"
+    },
+    {
+      "id": "3",
+      "name": "Site 7"
+    },
+    {
+      "id": "4",
+      "name": "Nearby Site"
+    },
+    {
+      "id": "5",
+      "name": "Site 18"
+    },
+    {
+      "id": "6",
+      "name": "Integration Site"
+    },
+    {
+      "id": "7",
+      "name": "Comming Site"
+    }
+  ]
+}

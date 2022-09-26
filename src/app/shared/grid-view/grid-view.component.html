@@ -1,8 +1,22 @@
-<div class="row">
-  <div *ngFor="let pais of paises" class="col-md-1">
+<div class="file-container">
+  <div *ngFor="let file of files" class="file-item">
     <mat-card>
-      <mat-icon>file_present</mat-icon>
-      <p>{{pais.name.common}}</p>
+      <div class="file-icon-card">
+        <div>
+          <mat-icon class="more-icon" style="font-size: 1.5rem;">more_horiz</mat-icon>
+        </div>
+        <div class="">
+          <mat-icon [ngStyle]="{'color':'#be7226'}" class="file-icon">file_present</mat-icon>
+        </div>
+      </div>
+      <p>{{file.name}}</p>
     </mat-card>
+    <span class="item-hover">
+      <div class="item-hover-container">
+        <p>Nombre: {{file.name}}</p>
+        <p>Código:{{file.code}}</p>
+        <p>Estado:{{file.status}}</p>
+      </div>
+    </span>
   </div>
 </div>

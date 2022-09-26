@@ -1,0 +1,13 @@
+<div class="file-container">
+  <div *ngFor="let file of files" class="file-item" (dblclick)="getFolderById(file.id)">
+    <div class="file-icon-card">
+      <div class="">
+        <mat-icon [ngStyle]="{'color': level == '0' ? '#007788' : level == '1' ? '#adc13f' : '#be7226'}"
+          class="file-icon">
+          folder
+        </mat-icon>
+      </div>
+      <p>{{file.name}}</p>
+    </div>
+  </div>
+</div>

@@ -19,7 +19,6 @@
       </td>
     </ng-container>
     <ng-container *ngFor="let tableColumn of tableColumns" [matColumnDef]="tableColumn.name">
-
       <!-- if sortable column header -->
       <ng-container *ngIf="tableColumn.isSortable; else notSortable">
         <th mat-header-cell *matHeaderCellDef [mat-sort-header]="tableColumn.name"

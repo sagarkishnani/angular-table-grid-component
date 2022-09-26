@@ -11,7 +11,7 @@ import {
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Country } from '../interfaces/pais.interface';
+import { File } from '../interfaces/file.interface';
 import { TableColumn } from '../interfaces/table-column.interface';
 
 @Component({
@@ -20,7 +20,7 @@ import { TableColumn } from '../interfaces/table-column.interface';
   styleUrls: ['./table-view.component.css'],
 })
 export class TableViewComponent implements OnInit, AfterViewInit {
-  public tableDataSource = new MatTableDataSource<Country>([]);
+  public tableDataSource = new MatTableDataSource<File>([]);
   public displayedColumns: string[] = [];
   @ViewChild(MatPaginator) matPaginator: MatPaginator = new MatPaginator(
     new MatPaginatorIntl(),
@@ -40,7 +40,7 @@ export class TableViewComponent implements OnInit, AfterViewInit {
   @Output() rowAction: EventEmitter<any> = new EventEmitter<any>();
 
   // this property needs to have a setter, to dynamically get changes from parent component
-  @Input() set tableData(data: Country[]) {
+  @Input() set tableData(data: File[]) {
     this.setTableDataSource(data);
   }
 
@@ -64,8 +64,8 @@ export class TableViewComponent implements OnInit, AfterViewInit {
 
   // we need this, in order to make pagination work with *ngIf
 
-  setTableDataSource(data: Country[]) {
-    this.tableDataSource = new MatTableDataSource<Country>(data);
+  setTableDataSource(data: File[]) {
+    this.tableDataSource = new MatTableDataSource<File>(data);
     this.tableDataSource.paginator = this.matPaginator;
     this.tableDataSource.sort = this.matSort;
   }

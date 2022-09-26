@@ -7,7 +7,24 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #f7f8fa;
 }
 .row {
   --bs-gutter-x: 0px;
+}
+
+.mat-drawer-content {
+  overflow: hidden !important;
+}
+
+.folders {
+  display: flex;
+  justify-content: space-around;
+}
+
+.folders-mat-card {
+  margin-right: 0.8rem;
+  margin-left: 0.8rem;
+  width: 70%;
+  padding-bottom: 0.2rem !important;
 }

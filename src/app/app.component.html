@@ -1,9 +1,50 @@
-<div class="m-5">
-  <mat-icon (click)="showTableView()" aria-hidden="false" aria-label="Example home icon" fontIcon="home">table_rows
-  </mat-icon>
-  <mat-icon (click)="showGridView()" aria-hidden="false" aria-label="Example home icon" fontIcon="home">content_copy
-  </mat-icon>
-  <app-grid-view *ngIf="gridView == true" [paises]="paises"></app-grid-view>
-  <app-table-view *ngIf="tableView == true" [tableData]="paises" (sort)="sortData($event)"
-    [tableColumns]="paisesTableColumns" [isPageable]="true" [paginationSizes]="[2,4,6]"></app-table-view>
-</div>
+<mat-drawer-container class="main-container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="side" [opened]="true">
+    <h2>Navegación</h2>
+    <mat-card class="folders-mat-card">
+      <div class="folders">
+        <mat-icon [ngStyle]="{'color':'#007788'}">folder</mat-icon>
+        <p>Nivel I</p>
+        <mat-icon [ngStyle]="{'color':'#adc13f'}">folder</mat-icon>
+        <p>Nivel II</p>
+        <mat-icon [ngStyle]="{'color':'#be7226'}">folder</mat-icon>
+        <p>Nivel III</p>
+      </div>
+    </mat-card>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Outline form field</mat-label>
+      <input matInput placeholder="Placeholder">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+    <app-tree-view></app-tree-view>
+  </mat-drawer>
+
+  <div class="side-nav-content">
+    <div class="side-nav-button">
+      <div class="menu-btn-container">
+        <mat-icon (click)="drawer.toggle()" [ngStyle]="{'color':'white'}">menu</mat-icon>
+      </div>
+    </div>
+    <div>
+      <app-main-page></app-main-page>
+      <!-- <div class="view-selector">
+        <div class="icon-container" [ngClass]="tableView == true ? 'icon-active': ''">
+          <mat-icon (click)="showTableView()" aria-hidden="false" aria-label="table-icon" fontIcon="home">table_chart
+          </mat-icon>
+        </div>
+        <div class="icon-container" [ngClass]="gridView == true ? 'icon-active': ''">
+          <mat-icon (click)="showGridView()" aria-hidden="false" aria-label="content-icon" fontIcon="home">content_copy
+          </mat-icon>
+        </div>
+      </div> -->
+      <!-- <app-grid-view *ngIf="gridView == true" [files]="archivos"></app-grid-view> -->
+      <!-- <app-folder-view *ngIf="gridView == true" [files]="archivos" level="1"></app-folder-view>
+      <app-table-view *ngIf="tableView == true" [tableData]="archivos" (sort)="sortData($event)"
+        [tableColumns]="paisesTableColumns" [isPageable]="true" [paginationSizes]="[5,10,20]"></app-table-view>
+      <app-register-file></app-register-file> -->
+    </div>
+  </div>
+
+</mat-drawer-container>

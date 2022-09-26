@@ -3,6 +3,7 @@ import { Country } from './shared/interfaces/pais.interface';
 import { SharedService } from './shared/shared.service';
 import { TableColumn } from './shared/interfaces/table-column.interface';
 import { Sort } from '@angular/material/sort';
+import { File } from './shared/interfaces/file.interface';
 
 @Component({
   selector: 'app-root',
@@ -11,25 +12,38 @@ import { Sort } from '@angular/material/sort';
 })
 export class AppComponent implements OnInit {
   paises: Country[] = [];
+  archivos: File[] = [];
   datos: any[] = [];
   gridView: boolean = false;
   tableView: boolean = false;
+  showFiller = false;
   paisesTableColumns: TableColumn[] = [];
 
-  constructor(private paisService: SharedService) {}
+  constructor(private sharedService: SharedService) {}
 
   ngOnInit(): void {
     this.getPaises();
+    this.getArchivos();
 
     this.paisesTableColumns = [
       {
         name: 'Nombre',
-        dataKey: 'cca3',
+        dataKey: 'name',
         isSortable: true,
       },
       {
-        name: 'Apellido',
-        dataKey: 'cca2',
+        name: 'Código',
+        dataKey: 'code',
+        isSortable: true,
+      },
+      {
+        name: 'Estado',
+        dataKey: 'status',
+        isSortable: true,
+      },
+      {
+        name: 'Subidor por',
+        dataKey: 'uploadedBy',
         isSortable: true,
       },
     ];
@@ -38,15 +52,15 @@ export class AppComponent implements OnInit {
   sortData(sortParameters: Sort) {
     const keyName = sortParameters.active;
     if (sortParameters.direction === 'asc') {
-      return (this.paises = this.paises.sort((a: any, b: any) =>
+      return (this.archivos = this.archivos.sort((a: any, b: any) =>
         a[keyName].localeCompare(b[keyName])
       ));
     } else if (sortParameters.direction === 'desc') {
-      return (this.paises = this.paises.sort((a: any, b: any) =>
+      return (this.archivos = this.archivos.sort((a: any, b: any) =>
         b[keyName].localeCompare(a[keyName])
       ));
     } else {
-      return this.paises;
+      return this.archivos;
     }
   }
 
@@ -61,8 +75,14 @@ export class AppComponent implements OnInit {
   }
 
   getPaises() {
-    this.paisService.listarPaises().subscribe((res) => {
+    this.sharedService.listarPaises().subscribe((res) => {
       this.paises = res;
+    });
+  }
+
+  getArchivos() {
+    this.sharedService.listarArchivos().subscribe((res) => {
+      this.archivos = res.record;
     });
   }
 }

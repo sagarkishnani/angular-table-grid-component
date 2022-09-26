@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Country } from '../interfaces/pais.interface';
+import { File } from '../interfaces/file.interface';
 
 @Component({
   selector: 'app-grid-view',
@@ -7,5 +7,15 @@ import { Country } from '../interfaces/pais.interface';
   styleUrls: ['./grid-view.component.css'],
 })
 export class GridViewComponent {
-  @Input() paises: Country[] = [];
+  hover: boolean = false;
+
+  @Input() files: File[] = [];
+
+  hoverStateIn() {
+    this.hover = true;
+  }
+
+  hoverStateOut() {
+    this.hover = false;
+  }
 }
